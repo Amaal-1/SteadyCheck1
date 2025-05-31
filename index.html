@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteadyCheck - Drug Steady State Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="app-title">SteadyCheck</h1>
+            <p class="app-subtitle">Professional Drug Steady State Calculator</p>
+        </header>
+
+        <main class="main-content">
+            <div class="calculator-section">
+                <div class="input-group">
+                    <label for="drugName" class="input-label">Drug Name (Optional)</label>
+                    <input type="text" id="drugName" class="input-field" placeholder="Enter drug name">
+                </div>
+
+                <div class="input-group">
+                    <label for="halfLife" class="input-label">Drug Half-Life</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="halfLife" class="input-field" placeholder="Enter half-life" step="0.1" min="0.1">
+                        <select id="timeUnit" class="unit-select">
+                            <option value="hours">Hours</option>
+                            <option value="days">Days</option>
+                            <option value="minutes">Minutes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="steadyStateLevel" class="input-label">Steady State Level</label>
+                    <select id="steadyStateLevel" class="input-field">
+                        <option value="90">90% (3.3 half-lives)</option>
+                        <option value="95">95% (4.3 half-lives)</option>
+                        <option value="97" selected>97% (5 half-lives) - Standard</option>
+                        <option value="99">99% (6.6 half-lives)</option>
+                    </select>
+                </div>
+
+                <button id="calculateBtn" class="calculate-btn">Calculate Steady State</button>
+            </div>
+
+            <div class="results-section" id="resultsSection">
+                <h2 class="results-title">Results</h2>
+                <div class="result-card">
+                    <div class="result-item">
+                        <span class="result-label">Time to Steady State:</span>
+                        <span class="result-value" id="steadyStateTime">--</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Number of Half-Lives:</span>
+                        <span class="result-value" id="halfLivesCount">--</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Steady State Level:</span>
+                        <span class="result-value" id="steadyStatePercent">--</span>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h3 class="info-title">Clinical Information</h3>
+                    <p class="info-text" id="clinicalInfo">
+                        Steady state is typically achieved after 5 half-lives (97% of final concentration).
+                        This calculation helps determine optimal timing for therapeutic drug monitoring.
+                    </p>
+                </div>
+            </div>
+
+            <div class="reference-section">
+                <h3 class="reference-title">Quick Reference</h3>
+                <div class="reference-grid">
+                    <div class="reference-item">
+                        <strong>3 Half-Lives:</strong> 87.5% steady state
+                    </div>
+                    <div class="reference-item">
+                        <strong>4 Half-Lives:</strong> 93.75% steady state
+                    </div>
+                    <div class="reference-item">
+                        <strong>5 Half-Lives:</strong> 96.875% steady state
+                    </div>
+                    <div class="reference-item">
+                        <strong>Clinical Standard:</strong> 97% (5 half-lives)
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 SteadyCheck - For Healthcare Professionals</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
